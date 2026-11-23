@@ -33,5 +33,18 @@ public class FCFS {
             // Step 6: store finish in currentTime
             currentTime = finish;
         }
+        displayTable(processes);
+    }
+    private void displayTable(List<Process> processes) {
+        // Step 7: create private method displayTable with List param
+        // Step 8: print the header table
+        System.out.printf("%-8s %-10s %-8s %-8s %-8s %-10s %-10s%n",
+                "PID", "Arrival", "Burst", "Start", "Finish", "Waiting", "Turnaround");
+        // Step 9: Loop each process print it's all values
+        for (Process p : processes) {
+            System.out.printf("%-8s %-10d %-8d %-8d %-8d %-10d %-10d%n", p.getPid(),
+                    p.getArrivalTime(), p.getBurstTime(), p.getStartTime(), p.getFinishTime(),
+                    p.getWaitingTime(), p.getTurnaroundTime());
+        }
     }
 }
