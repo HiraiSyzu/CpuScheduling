@@ -34,6 +34,7 @@ public class FCFS {
             currentTime = finish;
         }
         displayTable(processes);
+        displayAverages(processes);
     }
     private void displayTable(List<Process> processes) {
         // Step 7: create private method displayTable with List param
@@ -46,5 +47,27 @@ public class FCFS {
                     p.getArrivalTime(), p.getBurstTime(), p.getStartTime(), p.getFinishTime(),
                     p.getWaitingTime(), p.getTurnaroundTime());
         }
+    }
+    private void displayAverages(List<Process> processes) {
+        // Step 10: create private method displayAverages with param List Process
+        // Step 11: declare two totals before loop (set = 0)
+        int sumWaitingTime = 0;
+        int sumTurnaroundTime = 0;
+        /* Step 11: Loop through processes
+        - add p.getWaitingTime to sumWaitingTime
+        - add p.getTurnaroundTime to sumTurnaroundTime
+         */
+        for (Process p : processes) {
+            sumWaitingTime += p.getWaitingTime();
+            sumTurnaroundTime += p.getTurnaroundTime();
+        }
+        // Step 12: Compute averages after the loop
+        double averageWaitingTime = sumWaitingTime / (double) processes.size();
+        double averageTurnaroundTime = sumTurnaroundTime / (double) processes.size();
+
+        // Step 13: Display (print) the average time
+        System.out.printf("Average Waiting Time: %.2f seconds", averageWaitingTime);
+        System.out.println();
+        System.out.printf("Average Turnaround Time: %.2f seconds", averageTurnaroundTime);
     }
 }
