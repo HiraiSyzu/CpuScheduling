@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 import model.Process;
+import scheduler.FCFS;
+
 public class Main {
     static void main() {
         List<Process> processes = new ArrayList<>();
@@ -11,5 +13,7 @@ public class Main {
         processes.add(new Process("P4", 3, 6));
         processes.add(new Process("P5", 4, 2));
 
+        FCFS fcfs = new FCFS(); // Create FCFS object
+        fcfs.schedule(processes);
     }
 }
