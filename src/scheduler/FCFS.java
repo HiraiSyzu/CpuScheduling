@@ -67,6 +67,7 @@ public class FCFS {
         double averageTurnaroundTime = sumTurnaroundTime / (double) processes.size();
 
         // Step 13: Display (print) the average time
+        System.out.print("\n===== Gantt Chart =====");
         System.out.printf("\nAverage Waiting Time: %.2f seconds%n", averageWaitingTime);
         System.out.printf("Average Turnaround Time: %.2f seconds%n", averageTurnaroundTime);
         System.out.println();

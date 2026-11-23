@@ -3,8 +3,11 @@ import java.util.List;
 import model.Process;
 import scheduler.FCFS;
 
+/* This is for HardCoded version, Run this when sir req hardcoded value version
+    Just alter the processes value
+ */
 public class Main {
-    static void main() {
+    public static void main(String[] args) {
         List<Process> processes = new ArrayList<>();
         // Test
         processes.add(new Process("P1", 0, 5));
