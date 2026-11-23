@@ -35,11 +35,12 @@ public class FCFS {
         }
         displayTable(processes);
         displayAverages(processes);
+        displayGanttChart(processes);
     }
     private void displayTable(List<Process> processes) {
         // Step 7: create private method displayTable with List param
         // Step 8: print the header table
-        System.out.printf("%-8s %-10s %-8s %-8s %-8s %-10s %-10s%n",
+        System.out.printf("\n%-8s %-10s %-8s %-8s %-8s %-10s %-10s%n",
                 "PID", "Arrival", "Burst", "Start", "Finish", "Waiting", "Turnaround");
         // Step 9: Loop each process print it's all values
         for (Process p : processes) {
@@ -66,8 +67,22 @@ public class FCFS {
         double averageTurnaroundTime = sumTurnaroundTime / (double) processes.size();
 
         // Step 13: Display (print) the average time
-        System.out.printf("Average Waiting Time: %.2f seconds", averageWaitingTime);
+        System.out.printf("\nAverage Waiting Time: %.2f seconds%n", averageWaitingTime);
+        System.out.printf("Average Turnaround Time: %.2f seconds%n", averageTurnaroundTime);
         System.out.println();
-        System.out.printf("Average Turnaround Time: %.2f seconds", averageTurnaroundTime);
+    }
+    private void displayGanttChart(List<Process> processes) {
+        // Step 14: declare lastFinishedTime var set = 0
+        int lastFinishedTime = 0;
+        // Step 15: Declare a loop processes for PID, and StartTime
+        for (Process p : processes) {
+            System.out.printf("| %s ", p.getPid());
+        }
+        System.out.println("|");
+        for (Process p : processes) {
+            System.out.printf("%-5d", p.getStartTime());
+            lastFinishedTime = p.getFinishTime();
+        }
+        System.out.printf("%-5d%n", lastFinishedTime);
     }
 }
